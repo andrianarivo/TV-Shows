@@ -48,11 +48,12 @@ body {
         0 7px 50px 0 rgba(0, 0, 0, 0.7);
       border-radius: 10px;
       span {
-        width: 100%;
-        background-color: aqua;
+        width: 90%;
 
         i {
           cursor: pointer;
+          display: flex;
+          justify-content: flex-end;
         }
       }
       #modal-body {
