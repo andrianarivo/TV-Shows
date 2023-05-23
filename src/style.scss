@@ -9,20 +9,37 @@ $font-cinzel: cinzel decorative;
   padding: 0;
 }
 
+@mixin flex-center {
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+
 body {
   font-family: $font-cinzel;
   background-color: $pink;
 
   nav {
     background-color: $blue;
+    height: 5vh;
+
     ul {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flex-center;
       gap: 5%;
       font-weight: 700;
       width: 100%;
       padding-block: 0.5%;
     }
+  }
+
+  main {
+    height: 90vh;
+  }
+
+  footer {
+    @include flex-center;
+    background-color: $blue;
+    font-weight: 700;
+    height: 5vh;
   }
 }
