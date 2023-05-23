@@ -36,12 +36,14 @@ body {
 
     .card {
       @include flex-center;
+
       flex-direction: column;
 
       .card-body {
         .movie-name {
           @include link;
         }
+
         .like-button {
           @include link;
         }
@@ -49,6 +51,7 @@ body {
 
       .comment-button {
         @include button;
+
         margin-bottom: 20px;
       }
     }
@@ -56,6 +59,7 @@ body {
 
   footer {
     @include flex-center;
+
     background-color: $blue;
     gap: 0.2%;
     height: 5vh;
