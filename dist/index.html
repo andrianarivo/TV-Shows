@@ -15,15 +15,60 @@
   <body>
     <header>
       <nav>
-        <img src="#" />
         <ul>
+          <li>
+            <i class="logo fas fa-theater-masks"></i>
+          </li>
           <li>TV SHOWS</li>
           <li>DATE</li>
           <li>GENRES</li>
         </ul>
       </nav>
     </header>
+    <!--modal popup window-->
+
+    <section>
+      <div id="modal-window">
+        <span id="close-button">
+          <i id="x-button" class="fas fa-times-circle"></i>
+        </span>
+        <div id="modal-image">
+          <img />
+        </div>
+        <div id="modal-body">
+          <h2>MOVIE NAME</h2>
+          <p>SUMMARY</p>
+          <span id="comments-counter"
+            >COMMENTS (2)
+            <table>
+              <tbody id="table-body">
+                <!--fetch the comments-->
+              </tbody>
+            </table>
+          </span>
+        </div>
+        <div id="modal-form">
+          <h3>ADD COMMENT</h3>
+          <form>
+            <input type="text" placeholder="Your name.." required />
+            <textarea
+              name="text"
+              placeholder="Your insights.."
+              required
+            ></textarea>
+            <button id="submit-comment">COMMENT</button>
+          </form>
+        </div>
+      </div>
+    </section>
     <main></main>
-    <footer></footer>
+    <footer>
+      <i class="copyright fas fa-tree"></i>
+      <p>Created by Microverse under CC license</p>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
