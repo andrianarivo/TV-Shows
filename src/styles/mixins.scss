@@ -1,0 +1,17 @@
+@mixin flex-center {
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+
+@mixin link {
+  cursor: pointer;
+}
+
+@mixin button {
+  border: 1px solid $blue;
+  background-color: $pink;
+  box-shadow: 10px 10px $blue;
+  height: 50px;
+  width: 150px;
+}
