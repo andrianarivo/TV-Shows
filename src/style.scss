@@ -15,10 +15,76 @@ $font-cinzel: cinzel decorative;
   place-items: center;
 }
 
+@mixin form-spacing {
+  padding-inline: 10px;
+  padding-block: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
 body {
   font-family: $font-cinzel;
   background-color: $pink;
+  section {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    text-align: center;
+    background-color: rgb(176, 224, 230, 0.7);
+    z-index: 1;
+    #modal-window {
+      @include flex-center;
+      gap: 30px;
+      flex-direction: column;
+      background-color: $pink;
+      margin: 10% auto;
+      width: 25%;
+      padding: 10px;
+      box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.5),
+        0 7px 50px 0 rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      span {
+        width: 100%;
+        background-color: aqua;
 
+        i {
+          cursor: pointer;
+        }
+      }
+      #modal-body {
+        h2 {
+          padding: 10px;
+        }
+        p {
+          padding: 10px;
+        }
+        span {
+          padding: 10px;
+        }
+      }
+      #modal-form {
+        @include flex-center;
+        flex-direction: column;
+        h3 {
+          padding: 10px;
+        }
+        form {
+          @include flex-center;
+          flex-direction: column;
+          input {
+            @include form-spacing;
+          }
+          textarea {
+            @include form-spacing;
+          }
+        }
+      }
+    }
+  }
   nav {
     background-color: $blue;
     height: 5vh;
