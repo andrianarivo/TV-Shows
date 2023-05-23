@@ -21,8 +21,10 @@ export const createModal = (movieIndex) => {
   const modalName = document.getElementById('modal-name');
   const modalSummary = document.getElementById('modal-summary');
   const { moviesArray } = movieStore;
-  // const movieIndex = e.target.id - 1;
   const { id, summary, name } = moviesArray[movieIndex];
+  const modalId = id;
+  modalImage.alt = modalId;
+
   modalName.innerText = name;
   modalSummary.innerHTML = summary;
   const { image } = moviesArray[movieIndex];
