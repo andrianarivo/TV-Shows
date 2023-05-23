@@ -30,17 +30,27 @@ body {
       font-weight: 700;
       width: 100%;
       padding-block: 0.5%;
+
+      li {
+        .logo {
+          font-size: 28px;
+        }
+      }
     }
   }
 
   main {
     height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 2%;
   }
 
   footer {
     @include flex-center;
 
     background-color: $blue;
+    gap: 0.2%;
     font-weight: 700;
     height: 5vh;
   }
