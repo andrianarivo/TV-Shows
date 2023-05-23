@@ -25,6 +25,7 @@ body {
 
     ul {
       @include flex-center;
+
       gap: 5%;
       font-weight: 700;
       width: 100%;
@@ -38,6 +39,7 @@ body {
 
   footer {
     @include flex-center;
+
     background-color: $blue;
     font-weight: 700;
     height: 5vh;
