@@ -1,57 +1,64 @@
-$blue: lightblue;
-$pink: lightpink;
-$font-cinzel: cinzel decorative;
-
-* {
-  text-decoration: none;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-@mixin flex-center {
-  display: flex;
-  place-content: center;
-  place-items: center;
-}
+@import './styles/variables.scss';
+@import './styles/defaults.scss';
+@import './styles/mixins.scss';
 
 body {
   font-family: $font-cinzel;
-  background-color: $pink;
+  background-color: $dark-pink;
 
-  nav {
-    background-color: $blue;
-    height: 5vh;
+  header {
+    nav {
+      background-color: $blue;
 
-    ul {
-      @include flex-center;
+      ul {
+        @include flex-center;
 
-      gap: 5%;
-      font-weight: 700;
-      width: 100%;
-      padding-block: 0.5%;
+        gap: 5%;
+        font-weight: 700;
+        width: 100%;
+        padding-block: 0.5%;
 
-      li {
-        .logo {
-          font-size: 28px;
+        li {
+          .logo {
+            font-size: 28px;
+          }
         }
       }
     }
   }
 
   main {
-    height: 90vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 0 2%;
+    padding: 2%;
+    max-width: 70%;
+    margin: 0 auto;
+
+    .card {
+      @include flex-center;
+      flex-direction: column;
+
+      .card-body {
+        .movie-name {
+          @include link;
+        }
+        .like-button {
+          @include link;
+        }
+      }
+
+      .comment-button {
+        @include button;
+        margin-bottom: 20px;
+      }
+    }
   }
 
   footer {
     @include flex-center;
-
     background-color: $blue;
     gap: 0.2%;
-    font-weight: 700;
     height: 5vh;
+    font-weight: 700;
   }
 }
