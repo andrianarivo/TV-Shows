@@ -93,59 +93,58 @@ body {
     background-color: $blue;
     height: 5vh;
 
-      ul {
-        @include flex-center;
-
-        gap: 5%;
-        font-weight: 700;
-        width: 100%;
-        padding-block: 0.5%;
-
-        li {
-          .logo {
-            font-size: 28px;
-          }
-        }
-      }
-    }
-  }
-
-  main {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 2%;
-    max-width: 70%;
-    margin: 0 auto;
-
-    .card {
+    ul {
       @include flex-center;
 
-      flex-direction: column;
+      gap: 5%;
+      font-weight: 700;
+      width: 100%;
+      padding-block: 0.5%;
 
-      .card-body {
-        .movie-name {
-          @include link;
+      li {
+        .logo {
+          font-size: 28px;
         }
-
-        .like-button {
-          @include link;
-        }
-      }
-
-      .comment-button {
-        @include button;
-
-        margin-bottom: 20px;
       }
     }
   }
+}
 
-  footer {
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 2%;
+  max-width: 70%;
+  margin: 0 auto;
+
+  .card {
     @include flex-center;
 
-    background-color: $blue;
-    gap: 0.2%;
-    height: 5vh;
-    font-weight: 700;
+    flex-direction: column;
+
+    .card-body {
+      .movie-name {
+        @include link;
+      }
+
+      .like-button {
+        @include link;
+      }
+    }
+
+    .comment-button {
+      @include button;
+
+      margin-bottom: 20px;
+    }
   }
+}
+
+footer {
+  @include flex-center;
+
+  background-color: $blue;
+  gap: 0.2%;
+  height: 5vh;
+  font-weight: 700;
 }
