@@ -7,12 +7,13 @@ import './style.scss';
 const movieStore = new MovieStore();
 await movieStore.getData();
 const involvementStore = new InvolvementStore();
+await involvementStore.makeAppId();
 
 // const form = document.getElementsByTagName('form');
 const commentBtn = document.getElementById('submit-comment');
 const closeModal = document.getElementById('close-button');
 const main = document.querySelector('main');
-main.innerHTML = movieStore.render();
+main.innerHTML = movieStore.render(involvementStore);
 
 document.addEventListener('click', async (e) => {
   e.preventDefault();

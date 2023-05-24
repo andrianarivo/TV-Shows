@@ -9,8 +9,10 @@ const BASE_URL =
   'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 
 export default class InvolvementStore {
-  constructor() {
-    this.makeAppId();
+  moviesLiked = [];
+
+  async initialize() {
+    await this.makeAppId();
   }
 
   async makeAppId() {
@@ -32,20 +34,26 @@ export default class InvolvementStore {
     const likesText = await likes.text();
     if (likesText !== '') {
       storeLikes(likesText);
-      return JSON.parse(likesText);
+      this.moviesLiked = JSON.parse(likesText);
     }
-    return likesText;
+  }
+
+  getLikesCount(movieId) {
+    const movie = this.moviesLiked.filter(
+      (movieLike) => Number(movieId) === Number(movieLike.item_id)
+    );
+    return movie.likes ?? 0;
   }
 
   async addLike(movieId) {
-    const response = await fetch(`${BASE_URL}/${this.appId}/likes/`, {
+    await fetch(`${BASE_URL}/${this.appId}/likes/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         item_id: movieId,
       }),
     });
-    return response;
+    await this.getLikes();
   }
 
   async getComments(movieId) {
