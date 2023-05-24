@@ -7,12 +7,7 @@ import {
 import countItems from './modules/countItems.js';
 import listOfMovies from './modules/listOfMovies.js';
 import MovieStore from './modules/movieStore.js';
-import {
-  createModal,
-  hideModal,
-  renderComment,
-  renderModal,
-} from './modules/toggleModal.js';
+import { createModal, hideModal, renderModal } from './modules/toggleModal.js';
 import './style.scss';
 
 // =========================
