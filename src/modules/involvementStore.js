@@ -1,42 +1,19 @@
-import {
-  getStoredAppId,
-  storeAppId,
-  storeComments,
-  storeLikes,
-} from './storage.js';
-
-const BASE_URL =
-  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
+import { fetchComments, fetchLikes, postComments, postLike } from './http.js';
+import { storeComments, storeLikes } from './storage.js';
 
 export default class InvolvementStore {
   moviesLiked = [];
 
-  async initialize() {
-    await this.makeAppId();
-    await this.getLikes();
-  }
-
-  async makeAppId() {
-    this.appId = getStoredAppId();
-    if (!this.appId) {
-      const response = await fetch(`${BASE_URL}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-      });
-      this.appId = await response.text();
-      storeAppId(this.appId);
-    }
-  }
+  movieComments = [];
 
   async getLikes() {
-    const likes = await fetch(`${BASE_URL}/${this.appId}/likes/`, {
-      method: 'GET',
-    });
+    const likes = await fetchLikes();
     const likesText = await likes.text();
     if (likesText !== '') {
       storeLikes(likesText);
       this.moviesLiked = JSON.parse(likesText);
     }
+    return this.moviesLiked;
   }
 
   getLikesCount(movieId) {
@@ -47,42 +24,25 @@ export default class InvolvementStore {
   }
 
   async addLike(movieId) {
-    await fetch(`${BASE_URL}/${this.appId}/likes/`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        item_id: movieId,
-      }),
-    });
+    await postLike(movieId);
     await this.getLikes();
   }
 
   async getComments(movieId) {
-    const comments = await fetch(
-      `${BASE_URL}/${this.appId}/comments?item_id=${movieId}`,
-      {
-        method: 'GET',
-      }
-    );
-
+    this.movieComments = [];
+    const comments = await fetchComments(movieId);
     const commentsText = await comments.text();
     const data = await JSON.parse(commentsText);
     if (!data.error) {
       storeComments(commentsText);
+      this.movieComments = JSON.parse(commentsText);
     }
-    return commentsText;
+    return this.movieComments;
   }
 
   async addComments(movieId, name, body) {
-    const comments = await fetch(`${BASE_URL}/${this.appId}/comments`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        item_id: movieId,
-        username: name,
-        comment: body,
-      }),
-    });
+    this.movieComments = [];
+    const comments = await postComments(movieId, name, body);
     return comments;
   }
 }

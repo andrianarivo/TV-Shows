@@ -23,7 +23,7 @@ import './style.scss';
 const movieStore = new MovieStore();
 await movieStore.getData();
 const involvementStore = new InvolvementStore();
-await involvementStore.initialize();
+await involvementStore.getLikes();
 
 countItems(movieStore);
 listOfMovies(movieStore, involvementStore);

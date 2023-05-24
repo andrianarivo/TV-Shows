@@ -1,8 +1,9 @@
+import { fetchMovies } from './http.js';
+
 export default class MovieStore {
   async getData() {
-    const fetchResult = await fetch('https://api.tvmaze.com/shows');
-    const jsonResult = await fetchResult.json();
-    this.moviesArray = jsonResult.slice(0, 12);
+    const movies = await fetchMovies();
+    this.moviesArray = movies.slice(0, 12);
   }
 
   get(index) {
