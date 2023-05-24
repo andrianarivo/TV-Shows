@@ -1,7 +1,12 @@
 import InvolvementStore from './modules/involvementStore.js';
 import MovieStore from './modules/movieStore.js';
 
-import { createModal, hideModal, renderModal } from './modules/toggleModal.js';
+import {
+  renderComment,
+  createModal,
+  hideModal,
+  renderModal,
+} from './modules/toggleModal.js';
 import './style.scss';
 
 const movieStore = new MovieStore();
@@ -38,7 +43,11 @@ commentBtn.addEventListener('click', async (e) => {
   const username = document.getElementById('form-username');
   const commentBox = document.getElementById('comment-box');
   await involvementStore.addComments(movieId, username.value, commentBox.value);
-  await involvementStore.getComments(movieId);
+  const comments = await involvementStore.getComments(movieId);
+  // addCommentTable();
+  const commentsArray = JSON.parse(comments);
+  renderComment(commentsArray);
+  // console.log(comments);
   username.value = '';
   commentBox.value = '';
 });
