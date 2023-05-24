@@ -11,7 +11,7 @@ document.addEventListener('click', (e) => {
   e.preventDefault();
   renderModal(e);
   const movieIndex = e.target.id - 1;
-  createModal(movieIndex);
+  createModal(movieIndex, movieStore);
 });
 
 closeModal.addEventListener('click', () => {
