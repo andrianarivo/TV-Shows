@@ -50,6 +50,7 @@ export default class MovieStore {
       movies[0].comments = JSON.parse(commentsText);
     }
     storeMovies(this.moviesArray);
+    return movies[0].comments;
   }
 
   async addComments(movieId, name, comment) {
@@ -67,7 +68,7 @@ export default class MovieStore {
           <i class="like-button far fa-heart" data-id=${movie.id}></i>
         </div>
         <p>${movie.likes ?? 0} likes</p>
-        <button class="comment-button" id=${
+        <button class="comment-button" data-id=${
           movie.id
         } data-target="#model-window">Comments</button>
       </div>`;

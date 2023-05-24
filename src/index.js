@@ -7,12 +7,17 @@ import {
 import countItems from './modules/countItems.js';
 import listOfMovies from './modules/listOfMovies.js';
 import MovieStore from './modules/movieStore.js';
-import { createModal, hideModal, renderModal } from './modules/toggleModal.js';
+import {
+  createModal,
+  hideModal,
+  renderComment,
+  renderModal,
+} from './modules/toggleModal.js';
 import './style.scss';
 
-// =========================
-// |     ENCAPSULATION     |
-// =========================
+// ==========================
+// |     INITIAL VALUES     |
+// ==========================
 const movieStore = new MovieStore();
 await movieStore.getData();
 
@@ -26,8 +31,11 @@ document.addEventListener('click', async (e) => {
   e.preventDefault();
 
   if (e.target.classList.contains('comment-button')) {
+    const movieId = e.target.dataset.id;
+    const comments = await movieStore.getComments(movieId);
     renderModal(e);
-    const movieIndex = e.target.id - 1;
+    renderComment(comments);
+    const movieIndex = movieId - 1;
     createModal(movieIndex, movieStore);
   }
 
@@ -44,7 +52,8 @@ closeModal.addEventListener('click', () => {
 commentBtn.addEventListener('click', async (e) => {
   const movieId = e.target.dataset.id;
   await movieStore.addComments(movieId, username.value, commentBox.value);
-  await movieStore.getComments(movieId);
+  const comments = await movieStore.getComments(movieId);
+  renderComment(comments);
   username.value = '';
   commentBox.value = '';
 });
