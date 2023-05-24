@@ -2,13 +2,6 @@
 @import './styles/defaults.scss';
 @import './styles/mixins.scss';
 
-@mixin form-spacing {
-  padding-inline: 10px;
-  padding-block: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
 body {
   font-family: $font-cinzel;
   background-color: $dark-pink;
@@ -33,7 +26,7 @@ body {
       background-color: $pink;
       margin: 10% auto;
       width: 25%;
-      padding: 10px;
+      padding: 30px;
       box-shadow:
         0 5px 20px 0 rgba(0, 0, 0, 0.5),
         0 7px 50px 0 rgba(0, 0, 0, 0.7);
@@ -43,7 +36,8 @@ body {
         width: 90%;
 
         i {
-          cursor: pointer;
+          @include link;
+
           display: flex;
           justify-content: flex-end;
         }
@@ -79,10 +73,18 @@ body {
 
           input {
             @include form-spacing;
+
+            border: 5px dotted $dark-pink;
           }
 
           textarea {
             @include form-spacing;
+
+            border: 5px dotted $dark-pink;
+          }
+
+          button {
+            @include button;
           }
         }
       }
