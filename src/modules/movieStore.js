@@ -1,4 +1,10 @@
-import { fetchComments, fetchLikes, fetchMovies, postLike } from './http.js';
+import {
+  fetchComments,
+  fetchLikes,
+  fetchMovies,
+  postComments,
+  postLike,
+} from './http.js';
 import { storeMovies } from './storage.js';
 
 export default class MovieStore {
@@ -20,6 +26,11 @@ export default class MovieStore {
     storeMovies(this.moviesArray);
   }
 
+  async addLike(movieId) {
+    await postLike(movieId);
+    await this.getLikes();
+  }
+
   get(index) {
     return this.moviesArray[index];
   }
@@ -28,19 +39,10 @@ export default class MovieStore {
     return this.moviesArray.length;
   }
 
-  async addLike(movieId) {
-    await postLike(movieId);
-    await this.getLikes();
-  }
-
   async getComments(movieId) {
     const movies = this.moviesArray.filter(
       (movie) => Number(movie.id) === Number(movieId)
     );
-    const { comments } = movies[0];
-    if (comments) {
-      return comments;
-    }
     const newComments = await fetchComments(movieId);
     const commentsText = await newComments.text();
     const data = await JSON.parse(commentsText);
@@ -48,7 +50,11 @@ export default class MovieStore {
       movies[0].comments = JSON.parse(commentsText);
     }
     storeMovies(this.moviesArray);
-    return movies[0].comments;
+  }
+
+  async addComments(movieId, name, comment) {
+    await postComments(movieId, name, comment);
+    await this.getComments(movieId);
   }
 
   render() {

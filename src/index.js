@@ -5,7 +5,6 @@ import {
   username,
 } from './modules/DOMLoader.js';
 import countItems from './modules/countItems.js';
-import InvolvementStore from './modules/involvementStore.js';
 import listOfMovies from './modules/listOfMovies.js';
 import MovieStore from './modules/movieStore.js';
 import {
@@ -21,7 +20,6 @@ import './style.scss';
 // =========================
 const movieStore = new MovieStore();
 await movieStore.getData();
-const involvementStore = new InvolvementStore();
 
 countItems(movieStore);
 listOfMovies(movieStore);
@@ -50,8 +48,7 @@ closeModal.addEventListener('click', () => {
 
 commentBtn.addEventListener('click', async (e) => {
   const movieId = e.target.dataset.id;
-  await involvementStore.addComments(movieId, username.value, commentBox.value);
-  await involvementStore.getComments(movieId);
+  await movieStore.addComments(movieId, username.value, commentBox.value);
   await movieStore.getComments(movieId);
   username.value = '';
   commentBox.value = '';
