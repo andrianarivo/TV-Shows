@@ -1,7 +1,3 @@
-// import MovieStore from './movieStore.js';
-
-// const movieStore = new MovieStore();
-
 const modal = document.querySelector('section');
 
 export const renderModal = (e) => {
@@ -9,7 +5,6 @@ export const renderModal = (e) => {
   if (e.target.className.includes('button')) {
     modal.style.display = 'block';
   }
-  // console.log(e.target.id);
 };
 
 export const hideModal = () => {
@@ -28,7 +23,6 @@ export const createModal = (i, movieStore) => {
 
   modalName.innerText = name;
   modalSummary.innerHTML = summary;
-  // const { image } = moviesArray[i];
   const { medium } = image;
   const mediumImage = medium;
   modalImage.src = mediumImage;
