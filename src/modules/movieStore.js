@@ -9,6 +9,10 @@ export default class MovieStore {
     return this.moviesArray[index];
   }
 
+  getItemsCount() {
+    return this.moviesArray.length;
+  }
+
   render(involvementStore) {
     let content = '';
     this.moviesArray.forEach((movie) => {

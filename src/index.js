@@ -5,6 +5,7 @@ import {
   username,
 } from './modules/DOMLoader.js';
 import addLike from './modules/addLike.js';
+import countItems from './modules/countItems.js';
 import InvolvementStore from './modules/involvementStore.js';
 import listOfMovies from './modules/listOfMovies.js';
 import MovieStore from './modules/movieStore.js';
@@ -19,6 +20,7 @@ await movieStore.getData();
 const involvementStore = new InvolvementStore();
 await involvementStore.initialize();
 
+countItems(movieStore);
 listOfMovies(movieStore, involvementStore);
 
 // =========================
