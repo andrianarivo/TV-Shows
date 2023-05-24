@@ -1,6 +1,14 @@
+import {
+  closeModal,
+  commentBox,
+  commentBtn,
+  username,
+} from './modules/DOMLoader.js';
+import addLike from './modules/addLike.js';
+import countItems from './modules/countItems.js';
 import InvolvementStore from './modules/involvementStore.js';
+import listOfMovies from './modules/listOfMovies.js';
 import MovieStore from './modules/movieStore.js';
-
 import {
   renderComment,
   createModal,
@@ -9,16 +17,20 @@ import {
 } from './modules/toggleModal.js';
 import './style.scss';
 
+// =========================
+// |     ENCAPSULATION     |
+// =========================
 const movieStore = new MovieStore();
 await movieStore.getData();
 const involvementStore = new InvolvementStore();
+await involvementStore.initialize();
 
-// const form = document.getElementsByTagName('form');
-const commentBtn = document.getElementById('submit-comment');
-const closeModal = document.getElementById('close-button');
-const main = document.querySelector('main');
-main.innerHTML = movieStore.render();
+countItems(movieStore);
+listOfMovies(movieStore, involvementStore);
 
+// =========================
+// |        EVENTS         |
+// =========================
 document.addEventListener('click', async (e) => {
   e.preventDefault();
 
@@ -28,9 +40,8 @@ document.addEventListener('click', async (e) => {
     createModal(movieIndex, movieStore);
   }
 
-  if (e.target.classList.contains('fa-heart')) {
-    await involvementStore.addLike(e.target.dataset.id);
-    await involvementStore.getLikes();
+  if (e.target.classList.contains('like-button')) {
+    addLike(movieStore, involvementStore, e.target.dataset.id);
   }
 });
 
@@ -40,8 +51,6 @@ closeModal.addEventListener('click', () => {
 
 commentBtn.addEventListener('click', async (e) => {
   const movieId = e.target.dataset.id;
-  const username = document.getElementById('form-username');
-  const commentBox = document.getElementById('comment-box');
   await involvementStore.addComments(movieId, username.value, commentBox.value);
   const comments = await involvementStore.getComments(movieId);
   // addCommentTable();

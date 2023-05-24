@@ -9,7 +9,11 @@ export default class MovieStore {
     return this.moviesArray[index];
   }
 
-  render() {
+  getItemsCount() {
+    return this.moviesArray.length;
+  }
+
+  render(involvementStore) {
     let content = '';
     this.moviesArray.forEach((movie) => {
       content += `<div class="card">
@@ -18,8 +22,10 @@ export default class MovieStore {
           <a class="movie-name">${movie.name}</a>
           <i class="like-button far fa-heart" data-id=${movie.id}></i>
         </div>
-        <p>5 likes</p>
-        <button class="comment-button" id=${movie.id} data-target="#model-window">Comments</button>
+        <p>${involvementStore.getLikesCount(movie.id)} likes</p>
+        <button class="comment-button" id=${
+          movie.id
+        } data-target="#model-window">Comments</button>
       </div>`;
     });
 
