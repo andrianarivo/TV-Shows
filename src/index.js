@@ -33,18 +33,12 @@ closeModal.addEventListener('click', () => {
   hideModal();
 });
 
-commentBtn.addEventListener('click', (e) => {
-  // console.log('comments clicked');
-  // if (e.target.classList.contains('submit-comment')) {
+commentBtn.addEventListener('click', async (e) => {
   const movieId = e.target.dataset.id;
   const username = document.getElementById('form-username');
   const commentBox = document.getElementById('comment-box');
-  involvementStore.getComments(movieId);
-  involvementStore.addComments(movieId, username.value, commentBox.value);
-  console.log(username.value);
-  console.log(commentBox.value);
+  await involvementStore.addComments(movieId, username.value, commentBox.value);
+  await involvementStore.getComments(movieId);
   username.value = '';
   commentBox.value = '';
-
-  console.log(movieId);
 });

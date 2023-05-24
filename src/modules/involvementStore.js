@@ -58,15 +58,9 @@ export default class InvolvementStore {
 
     const commentsText = await comments.text();
     const data = await JSON.parse(commentsText);
-    if (data.error.status === 400) {
-      console.log('no comments on this id');
-    } else storeComments(commentsText);
-    // if (commentsText !== '') {
-    // storeComments(commentsText);
-    // const data = await JSON.parse(commentsText);
-    // return data;
-    // }
-    // return data;
+    if (!data.error) {
+      storeComments(commentsText);
+    }
   }
 
   async addComments(movieId, name, body) {
