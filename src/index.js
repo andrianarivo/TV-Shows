@@ -1,3 +1,4 @@
+import { getLikes } from './modules/involvement_api.js';
 import MovieStore from './modules/movieStore.js';
 import { createModal, hideModal, renderModal } from './modules/toggleModal.js';
 import './style.scss';
