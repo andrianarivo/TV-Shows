@@ -19,7 +19,7 @@ document.addEventListener('click', async (e) => {
     createModal(movieIndex, movieStore);
   }
   if (e.target.classList.contains('fa-heart')) {
-    addLike(e.target.dataset.id);
+    await addLike(e.target.dataset.id);
     await getLikes();
   }
 });
