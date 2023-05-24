@@ -16,7 +16,7 @@ export default class MovieStore {
         <img class="card-banner" src="${movie.image.medium}" />
         <div class="card-body">
           <a class="movie-name">${movie.name}</a>
-          <a class="like-button" href="#"><i class="far fa-heart"></i></a>
+          <i class="like-button far fa-heart" data-id=${movie.id}></i>
         </div>
         <p>5 likes</p>
         <button class="comment-button" id=${movie.id} data-target="#model-window">Comments</button>
