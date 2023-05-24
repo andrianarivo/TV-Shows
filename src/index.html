@@ -50,13 +50,19 @@
         <div id="modal-form">
           <h3>ADD COMMENT</h3>
           <form>
-            <input type="text" placeholder="Your name.." required />
+            <input
+              id="form-username"
+              type="text"
+              placeholder="Your name.."
+              required
+            />
             <textarea
+              id="comment-box"
               name="text"
               placeholder="Your insights.."
               required
             ></textarea>
-            <button id="submit-comment">COMMENT</button>
+            <button data-id="" id="submit-comment">COMMENT</button>
           </form>
         </div>
       </div>

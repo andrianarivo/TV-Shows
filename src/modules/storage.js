@@ -7,3 +7,7 @@ export const storeLikes = (likesText) => {
 };
 
 export const getStoredAppId = () => localStorage.getItem('JSCapstoneAppID');
+
+export const storeComments = (commentsText) => {
+  localStorage.setItem('comments', commentsText);
+};

@@ -8,6 +8,8 @@ const movieStore = new MovieStore();
 await movieStore.getData();
 const involvementStore = new InvolvementStore();
 
+// const form = document.getElementsByTagName('form');
+const commentBtn = document.getElementById('submit-comment');
 const closeModal = document.getElementById('close-button');
 const main = document.querySelector('main');
 main.innerHTML = movieStore.render();
@@ -29,4 +31,14 @@ document.addEventListener('click', async (e) => {
 
 closeModal.addEventListener('click', () => {
   hideModal();
+});
+
+commentBtn.addEventListener('click', async (e) => {
+  const movieId = e.target.dataset.id;
+  const username = document.getElementById('form-username');
+  const commentBox = document.getElementById('comment-box');
+  await involvementStore.addComments(movieId, username.value, commentBox.value);
+  await involvementStore.getComments(movieId);
+  username.value = '';
+  commentBox.value = '';
 });

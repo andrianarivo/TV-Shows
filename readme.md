@@ -78,7 +78,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 - **[cd your-folder]**
-- **[git clone https://github.com/vangelif/.git]**
+- **[git clone https://github.com/andrianarivo/capstone-2]**
 
 ### Install
 
@@ -93,9 +93,6 @@ To run the project, use Visual Studio Code Liver Server:
 👤 **Vangelis**
 
 - [@github](https://github.com/vangelif)
-- [@twitter](https://twitter.com/vangfot)
-- [@linkedin](https://www.linkedin.com/in/vangfot/)
-- [@articles](https://vangelis.website/essays)
 
 👤 **David Andrianarivo**
 

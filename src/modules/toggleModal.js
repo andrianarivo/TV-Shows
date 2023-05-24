@@ -15,6 +15,7 @@ export const createModal = (i, movieStore) => {
   const modalImage = document.getElementById('modal-image');
   const modalName = document.getElementById('modal-name');
   const modalSummary = document.getElementById('modal-summary');
+  const modalButton = document.getElementById('submit-comment');
 
   const movie = movieStore.get(i);
   const { id, summary, name, image } = movie;
@@ -26,4 +27,5 @@ export const createModal = (i, movieStore) => {
   const { medium } = image;
   const mediumImage = medium;
   modalImage.src = mediumImage;
+  modalButton.dataset.id = id;
 };
