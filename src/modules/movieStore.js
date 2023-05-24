@@ -1,9 +1,12 @@
-const fetchResult = await fetch('https://api.tvmaze.com/shows');
-const jsonResult = await fetchResult.json();
-
 export default class MovieStore {
-  constructor() {
+  async getData() {
+    const fetchResult = await fetch('https://api.tvmaze.com/shows');
+    const jsonResult = await fetchResult.json();
     this.moviesArray = jsonResult.slice(0, 12);
+  }
+
+  get(index) {
+    return this.moviesArray[index];
   }
 
   render() {

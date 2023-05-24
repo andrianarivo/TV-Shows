@@ -1,17 +1,22 @@
 import MovieStore from './modules/movieStore.js';
+import { createModal, hideModal, renderModal } from './modules/toggleModal.js';
 import './style.scss';
-import { renderModal, hideModal, createModal } from './modules/toggleModal.js';
+
+const movieStore = new MovieStore();
+await movieStore.getData();
 
 const closeModal = document.getElementById('close-button');
-const movieStore = new MovieStore();
 const main = document.querySelector('main');
 main.innerHTML = movieStore.render();
 
 document.addEventListener('click', (e) => {
   e.preventDefault();
-  renderModal(e);
-  const movieIndex = e.target.id - 1;
-  createModal(movieIndex, movieStore);
+
+  if (e.target.classList.contains('comment-button')) {
+    renderModal(e);
+    const movieIndex = e.target.id - 1;
+    createModal(movieIndex, movieStore);
+  }
 });
 
 closeModal.addEventListener('click', () => {
