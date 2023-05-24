@@ -1,4 +1,4 @@
-import { getLikes } from './modules/involvement_api.js';
+import { addLike, getLikes } from './modules/involvement_api.js';
 import MovieStore from './modules/movieStore.js';
 import { createModal, hideModal, renderModal } from './modules/toggleModal.js';
 import './style.scss';
@@ -19,8 +19,8 @@ document.addEventListener('click', async (e) => {
     createModal(movieIndex, movieStore);
   }
   if (e.target.classList.contains('fa-heart')) {
-    const likes = await getLikes();
-    console.log('likes', likes);
+    addLike(e.target.dataset.id);
+    await getLikes();
   }
 });
 
