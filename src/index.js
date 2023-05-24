@@ -9,7 +9,12 @@ import countItems from './modules/countItems.js';
 import InvolvementStore from './modules/involvementStore.js';
 import listOfMovies from './modules/listOfMovies.js';
 import MovieStore from './modules/movieStore.js';
-import { createModal, hideModal, renderModal } from './modules/toggleModal.js';
+import {
+  renderComment,
+  createModal,
+  hideModal,
+  renderModal,
+} from './modules/toggleModal.js';
 import './style.scss';
 
 // =========================
@@ -47,7 +52,11 @@ closeModal.addEventListener('click', () => {
 commentBtn.addEventListener('click', async (e) => {
   const movieId = e.target.dataset.id;
   await involvementStore.addComments(movieId, username.value, commentBox.value);
-  await involvementStore.getComments(movieId);
+  const comments = await involvementStore.getComments(movieId);
+  // addCommentTable();
+  const commentsArray = JSON.parse(comments);
+  renderComment(commentsArray);
+  // console.log(comments);
   username.value = '';
   commentBox.value = '';
 });

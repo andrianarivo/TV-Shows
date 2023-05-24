@@ -1,4 +1,5 @@
 const modal = document.querySelector('section');
+const table = document.getElementById('table-body');
 
 export const renderModal = (e) => {
   e.target.className.includes('button');
@@ -28,4 +29,30 @@ export const createModal = (i, movieStore) => {
   const mediumImage = medium;
   modalImage.src = mediumImage;
   modalButton.dataset.id = id;
+};
+
+const addCommentTable = (date, name, comment) => {
+  const commentTable = document.createElement('tr');
+  commentTable.innerHTML = `
+  <td>${date} <strong>${name}</strong> 👉</td>
+  <td>${comment}</td>
+  `;
+  table.append(commentTable);
+};
+
+export const renderComment = (data) => {
+  table.innerHTML = '';
+  // eslint-disable-next-line camelcase
+  // data.forEach(({ comment, creation_date, username }) => {
+  //   console.log(comment);
+  //   console.log(username);
+  //   console.log(creation_date);
+  //   addCommentTable(creation_date, username, comment);
+  // });
+
+  for (let i = 0; i < data.length; i += 1) {
+    // eslint-disable-next-line camelcase
+    const { creation_date, username, comment } = data[i];
+    addCommentTable(creation_date, username, comment);
+  }
 };

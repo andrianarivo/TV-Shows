@@ -70,6 +70,7 @@ export default class InvolvementStore {
     if (!data.error) {
       storeComments(commentsText);
     }
+    return commentsText;
   }
 
   async addComments(movieId, name, body) {
