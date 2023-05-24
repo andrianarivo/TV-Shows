@@ -1,32 +1,8 @@
-import { fetchComments, fetchLikes, postComments, postLike } from './http.js';
-import { storeComments, storeLikes } from './storage.js';
+import { fetchComments,  postComments  } from './http.js';
+import { storeComments,  } from './storage.js';
 
 export default class InvolvementStore {
-  moviesLiked = [];
-
   movieComments = [];
-
-  async getLikes() {
-    const likes = await fetchLikes();
-    const likesText = await likes.text();
-    if (likesText !== '') {
-      storeLikes(likesText);
-      this.moviesLiked = JSON.parse(likesText);
-    }
-    return this.moviesLiked;
-  }
-
-  getLikesCount(movieId) {
-    const movie = this.moviesLiked.filter(
-      (movieLiked) => Number(movieId) === Number(movieLiked.item_id)
-    );
-    return (movie[0] && movie[0].likes) ?? 0;
-  }
-
-  async addLike(movieId) {
-    await postLike(movieId);
-    await this.getLikes();
-  }
 
   async getComments(movieId) {
     this.movieComments = [];

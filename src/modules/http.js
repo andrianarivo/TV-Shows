@@ -30,7 +30,7 @@ const fetchLikes = async () => {
   const likes = await fetch(`${BASE_URL}/${appId}/likes/`, {
     method: 'GET',
   });
-  return likes;
+  return likes.json();
 };
 
 const postLike = async (movieId) => {

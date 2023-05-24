@@ -1,6 +1,7 @@
-import fetchMock from 'jest-fetch-mock';
-import InvolvementStore from '../src/modules/involvementStore.js';
+import fetchMock, { enableFetchMocks } from 'jest-fetch-mock';
 import MovieStore from '../src/modules/movieStore.js';
+
+enableFetchMocks();
 
 beforeEach(() => {
   fetchMock.resetMocks();
@@ -9,12 +10,21 @@ beforeEach(() => {
 describe('count the number of displayed items', () => {
   test('display items', async () => {
     // Arrange
-    fetchMock.mockResponseOnce(
-      JSON.stringify([
-        { id: 1, image: { medium: '#' }, name: 'Movie 1' },
-        { id: 2, image: { medium: '#' }, name: 'Movie 2' },
-      ])
-    );
+    fetch.mockImplementation((url) => {
+      if (url === 'https://api.tvmaze.com/shows') {
+        return Promise.resolve(
+          new Response(
+            JSON.stringify([
+              { id: 1, image: { medium: '#' }, name: 'Movie 1' },
+              { id: 2, image: { medium: '#' }, name: 'Movie 2' },
+            ])
+          )
+        );
+      }
+      return Promise.resolve(
+        new Response(JSON.stringify([{ item_id: 1, likes: 5 }]))
+      );
+    });
     document.body.innerHTML = `
     <main></main>
   `;
@@ -23,11 +33,9 @@ describe('count the number of displayed items', () => {
     // Act
     const movieStore = new MovieStore();
     await movieStore.getData();
-    const involvementStore = new InvolvementStore();
-    involvementStore.getLikes();
 
     // Assert
-    mainContainer.innerHTML = movieStore.render(involvementStore);
+    mainContainer.innerHTML = movieStore.render();
     expect(mainContainer.children.length).toBe(movieStore.moviesArray.length);
   });
 });
