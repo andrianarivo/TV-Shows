@@ -1,4 +1,4 @@
-const appId = 'qK3z1QXp5g0btOAdCguF';
+const appId = 'FAGmJuYG6eUJ8BrXYXwa';
 const baseUrl =
   'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 
@@ -21,7 +21,7 @@ export const addLike = async (movieId) => {
       item_id: movieId,
     }),
   });
-  console.log(response);
+
   return response;
 };
 
