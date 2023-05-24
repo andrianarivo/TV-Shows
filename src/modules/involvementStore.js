@@ -13,6 +13,7 @@ export default class InvolvementStore {
 
   async initialize() {
     await this.makeAppId();
+    await this.getLikes();
   }
 
   async makeAppId() {
@@ -40,9 +41,9 @@ export default class InvolvementStore {
 
   getLikesCount(movieId) {
     const movie = this.moviesLiked.filter(
-      (movieLike) => Number(movieId) === Number(movieLike.item_id)
+      (movieLiked) => Number(movieId) === Number(movieLiked.item_id)
     );
-    return movie.likes ?? 0;
+    return (movie[0] && movie[0].likes) ?? 0;
   }
 
   async addLike(movieId) {
