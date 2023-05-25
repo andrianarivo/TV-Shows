@@ -1,5 +1,12 @@
-const modal = document.querySelector('section');
-const table = document.getElementById('table-body');
+import {
+  modalName,
+  modalSummary,
+  modalImage,
+  modalButton,
+  modal,
+  table,
+  commentsCounter,
+} from './DOMLoader';
 
 export const renderModal = (e) => {
   e.target.className.includes('button');
@@ -13,15 +20,13 @@ export const hideModal = () => {
 };
 
 export const createModal = (i, movieStore) => {
-  const modalImage = document.getElementById('modal-image');
-  const modalName = document.getElementById('modal-name');
-  const modalSummary = document.getElementById('modal-summary');
-  const modalButton = document.getElementById('submit-comment');
-
   const movie = movieStore.get(i);
-  const { id, summary, name, image } = movie;
+  const { id, summary, name, image, comments } = movie;
   const modalId = id;
   modalImage.alt = modalId;
+
+  const commentsCount = comments ? comments.length : 0;
+  commentsCounter.innerText = commentsCount;
 
   modalName.innerText = name;
   modalSummary.innerHTML = summary;
