@@ -1,3 +1,6 @@
+import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+import '@fortawesome/fontawesome-free/scss/regular.scss';
+import '@fortawesome/fontawesome-free/scss/solid.scss';
 import {
   closeModal,
   commentBox,
@@ -6,13 +9,13 @@ import {
 } from './modules/DOMLoader.js';
 import countItems from './modules/countItems.js';
 import listOfMovies from './modules/listOfMovies.js';
-import MovieStore from './modules/movieStore.js';
 import {
   createModal,
   hideModal,
   renderComment,
   renderModal,
 } from './modules/modal.js';
+import MovieStore from './modules/movieStore.js';
 import './style.scss';
 
 // ==========================

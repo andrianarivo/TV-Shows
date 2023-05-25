@@ -2,7 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: { index: path.resolve(__dirname, 'src', 'index.js') },
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
   devServer: {
     static: './dist',
   },
@@ -14,16 +19,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(sass|scss|css)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-  optimization: {
-    runtimeChunk: 'single',
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-  },
+  mode: process.env.NODE_ENV,
 };
