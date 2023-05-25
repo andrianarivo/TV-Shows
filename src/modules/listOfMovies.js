@@ -1,7 +1,7 @@
 import { main } from './DOMLoader.js';
 
-const listOfMovies = (movieStore, involvementStore) => {
-  main.innerHTML = movieStore.render(involvementStore);
+const listOfMovies = (movieStore) => {
+  main.innerHTML = movieStore.render();
 };
 
 export default listOfMovies;

@@ -21,7 +21,8 @@
         "json": "always"
       }
     ],
-    "import/no-unresolved": [2, { "caseSensitive": false }]
+    "import/no-unresolved": [2, { "caseSensitive": false }],
+    "import/no-extraneous-dependencies": ["off"]
   },
   "ignorePatterns": ["dist/", "build/", "*.config*"]
 }
