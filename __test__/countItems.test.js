@@ -33,9 +33,9 @@ describe('count the number of displayed items', () => {
     // Act
     const movieStore = new MovieStore();
     await movieStore.getData();
+    mainContainer.innerHTML = movieStore.render();
 
     // Assert
-    mainContainer.innerHTML = movieStore.render();
     expect(mainContainer.children.length).toBe(movieStore.moviesArray.length);
   });
 });
