@@ -10,18 +10,20 @@ import { storeMovies } from './storage.js';
 export default class MovieStore {
   async getData() {
     const movies = await fetchMovies();
-    this.moviesArray = movies.slice(0, 12);
+    this.moviesArray = movies.slice(0, 48);
     await this.getLikes();
   }
 
   async getLikes() {
     const likedMovies = await fetchLikes();
     this.moviesArray.forEach((movie) => {
-      likedMovies.forEach((likedMovie) => {
-        if (Number(movie.id) === Number(likedMovie.item_id)) {
-          movie.likes = likedMovie.likes;
-        }
-      });
+      if (Array.isArray(likedMovies)) {
+        likedMovies.forEach((likedMovie) => {
+          if (Number(movie.id) === Number(likedMovie.item_id)) {
+            movie.likes = likedMovie.likes;
+          }
+        });
+      }
     });
     storeMovies(this.moviesArray);
   }
@@ -32,7 +34,10 @@ export default class MovieStore {
   }
 
   get(index) {
-    return this.moviesArray[index];
+    const movies = this.moviesArray.filter(
+      (movie) => Number(movie.id) === Number(index)
+    );
+    return movies[0];
   }
 
   getItemsCount() {

@@ -35,7 +35,7 @@ document.addEventListener('click', async (e) => {
     const comments = await movieStore.getComments(movieId);
     renderModal(e);
     renderComment(comments);
-    const movieIndex = movieId - 1;
+    const movieIndex = movieId;
     createModal(movieIndex, movieStore);
   }
 
