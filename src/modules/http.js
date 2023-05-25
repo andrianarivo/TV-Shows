@@ -1,6 +1,6 @@
 import { getStoredAppId, storeAppId } from './storage.js';
 
-const BASE_URL =
+export const BASE_URL =
   'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 
 const fetchMovies = async () => {
