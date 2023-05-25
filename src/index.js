@@ -12,7 +12,7 @@ import {
   hideModal,
   renderComment,
   renderModal,
-} from './modules/toggleModal.js';
+} from './modules/modal.js';
 import './style.scss';
 
 // ==========================
@@ -56,4 +56,5 @@ commentBtn.addEventListener('click', async (e) => {
   renderComment(comments);
   username.value = '';
   commentBox.value = '';
+  createModal(movieId, movieStore);
 });
