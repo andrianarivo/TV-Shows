@@ -19,7 +19,7 @@
           <li>
             <i class="logo fas fa-theater-masks"></i>
           </li>
-          <li>TV SHOWS</li>
+          <li class="logo-title">TV SHOWS</li>
           <li>DATE</li>
           <li>GENRES</li>
         </ul>
@@ -38,11 +38,13 @@
         <div id="modal-body">
           <h2 id="modal-name">MOVIE NAME</h2>
           <p id="modal-summary">SUMMARY</p>
-          <span id="comments-counter"
-            >COMMENTS (2)
+          <span
+            >COMMENTS <strong><span id="comments-counter">2</span></strong>
             <table>
               <tbody id="table-body">
-                <!--fetch the comments-->
+                <tr>
+                  <!--fetch the comments-->
+                </tr>
               </tbody>
             </table>
           </span>
@@ -50,13 +52,19 @@
         <div id="modal-form">
           <h3>ADD COMMENT</h3>
           <form>
-            <input type="text" placeholder="Your name.." required />
+            <input
+              id="form-username"
+              type="text"
+              placeholder="🤖 Your name.."
+              required
+            />
             <textarea
+              id="comment-box"
               name="text"
-              placeholder="Your insights.."
+              placeholder="✍🏼 Your insights.."
               required
             ></textarea>
-            <button id="submit-comment">COMMENT</button>
+            <button data-id="" id="submit-comment">COMMENT</button>
           </form>
         </div>
       </div>
