@@ -24,5 +24,5 @@ module.exports = {
       },
     ],
   },
-  mode: process.env.NODE_ENV,
+  mode: 'development',
 };
