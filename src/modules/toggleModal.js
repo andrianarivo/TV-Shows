@@ -42,17 +42,12 @@ const addCommentTable = (date, name, comment) => {
 
 export const renderComment = (data) => {
   table.innerHTML = '';
-  // eslint-disable-next-line camelcase
-  // data.forEach(({ comment, creation_date, username }) => {
-  //   console.log(comment);
-  //   console.log(username);
-  //   console.log(creation_date);
-  //   addCommentTable(creation_date, username, comment);
-  // });
 
-  for (let i = 0; i < data.length; i += 1) {
-    // eslint-disable-next-line camelcase
-    const { creation_date, username, comment } = data[i];
-    addCommentTable(creation_date, username, comment);
+  if (data) {
+    for (let i = 0; i < data.length; i += 1) {
+      // eslint-disable-next-line camelcase
+      const { creation_date, username, comment } = data[i];
+      addCommentTable(creation_date, username, comment);
+    }
   }
 };
