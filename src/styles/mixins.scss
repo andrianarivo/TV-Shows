@@ -1,7 +1,9 @@
+@import './variables.scss';
+
 @mixin flex-center {
   display: flex;
-  place-content: center;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin link {
@@ -9,19 +11,13 @@
 }
 
 @mixin button {
-  border: 1px solid $blue;
-  background-color: $pink;
-  box-shadow: 10px 10px $blue;
-  height: 50px;
-  width: 150px;
-}
-
-@mixin modalButton {
-  border: 1px solid $pink;
-  background-color: $blue;
-  box-shadow: 10px 10px $blue;
-  height: 50px;
-  width: 150px;
+  background-color: $yellow;
+  color: $dark-blue;
+  height: 2.5em;
+  width: 9em;
+  border-radius: 1.25em;
+  font-family: $font-body;
+  font-weight: 700;
 }
 
 @mixin form-spacing {
