@@ -70,7 +70,7 @@ export default class MovieStore {
         <img class="card-banner" src="${movie.image.medium}" />
         <div class="card-body">
           <a class="movie-name">${movie.name}</a>
-          <i class="like-button far fa-heart" data-id=${movie.id}></i>
+          <i class="like-button fa-regular fa-heart" data-id=${movie.id}></i>
         </div>
         <p>${movie.likes ?? 0} likes</p>
         <button class="comment-button" data-id=${

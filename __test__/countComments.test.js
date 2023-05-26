@@ -1,6 +1,6 @@
 import fetchMock, { enableFetchMocks } from 'jest-fetch-mock';
-import { BASE_URL } from '../src/modules/http';
-import MovieStore from '../src/modules/movieStore';
+import { BASE_URL } from '../src/modules/http.js';
+import MovieStore from '../src/modules/movieStore.js';
 
 enableFetchMocks();
 

@@ -1,29 +1,30 @@
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [📝 License](#license)
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Capstone Project ](#-capstone-project-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+  - [👥 Author ](#-author-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
-# 📖 [Capstone Project] <a name="about-project"></a>
+# 📖 Capstone Project <a name="about-project"></a>
 
 **Capstone Project** is a project that we are applying our knowledge on HTML and CSS and JavaScript to fetch movies from TVMAZE API, and allow users to post comments, likes, read summaries of movies that they choose to and update our base API with their comments and likes.
 
 ## 🛠 Built With <a name="built-with"></a>
 
-- Use of HTML, CCS and JS
+- Use of HTML, SASS and JS
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -35,14 +36,14 @@
 </details>
 
 <details>
-  <summary>Style Sheet Language</summary>
+  <summary>Preprocessor Scripting Language</summary>
   <ul>
-    <li><a href="https://www.w3.org/TR/CSS/#css">CCS</a></li>
+    <li><a href="https://sass-lang.com/">SASS</a></li>
   </ul>
 </details>
 
 <details>
-<summary>Scipting Language</summary>
+<summary>Scripting Language</summary>
   <ul>
     <li><a href="https://www.javascript.com/">JAVASCRIPT</a></li>
   </ul>
@@ -50,15 +51,16 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Use of correct Gitflow]**
-- **[Use of linter checks]**
-- **[Use of best practices for HTML/CSS and JavaScript]**
-- **[Use of Webpack configuration]**
-- **[Use of professional documentation]**
+- **Use of correct Gitflow**
+- **Use of linter checks**
+- **Use of best practices for HTML/CSS and JavaScript**
+- **Use of Webpack configuration**
+- **Use of professional documentation**
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- <a href="#">Check out the live demo</a>
+- Look at a video of us presenting the project: <a href="https://drive.google.com/file/d/1vInP2D4wGq3JF1LGSBb_pArZiegj6qn3/view?usp=sharing">here</a>
+- <a href="https://andrianarivo.github.io/capstone-2/dist/index.html">Check out the live demo</a>
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -70,19 +72,25 @@ Get a local copy now by following below steps:
 
 In order to run this project you need:
 
-- **[Code Editor: Visual Studio, Atom, Sublime]**
-- **[Git bash]**
+- **Code Editor: Visual Studio, Atom, Sublime**
+- **Git bash**
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-- **[cd your-folder]**
-- **[git clone https://github.com/andrianarivo/capstone-2]**
+```
+  cd your-folder
+  git clone https://github.com/andrianarivo/capstone-2
+```
 
 ### Install
 
 Install dependencies for webpack configuration and linters checks.
+
+```
+  npm install
+```
 
 ### Usage
 
@@ -100,13 +108,13 @@ To run the project, use Visual Studio Code Liver Server:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [User send and receive friend requests]
-- [User can login with private credentials]
-- [User can use IM chat log to interact with friends]
+- User send and receive friend requests
+- User can login with private credentials
+- User can use IM chat log to interact with friends
 
 ## 🤝 Contributing <a name="contributing"></a>
 
-Contributions, <a href="#">issues, and feature requests are welcome</a>! Feel free to come in touch with the author.
+Contributions, <a href="https://github.com/andrianarivo/capstone-2/issues">issues, and feature requests are welcome</a>! Feel free to come in touch with the author.
 
 ## ⭐️ Show your support <a name="support"></a>
 
@@ -118,4 +126,4 @@ For this project many hours have been invested. For that reason, I would like to
 
 ## 📝 License <a name="license"></a>
 
-This project is <a href="https://github.com/vangelif/Portfolio/blob/popup-window/license.md">MIT licensed</a>.
+This project is <a href="https://github.com/andrianarivo/capstone-2/blob/gh-pages/LICENSE">MIT licensed</a>.

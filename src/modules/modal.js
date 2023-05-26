@@ -1,12 +1,12 @@
 import {
+  commentsCounter,
+  modal,
+  modalButton,
+  modalImage,
   modalName,
   modalSummary,
-  modalImage,
-  modalButton,
-  modal,
   table,
-  commentsCounter,
-} from './DOMLoader';
+} from './DOMLoader.js';
 
 export const renderModal = (e) => {
   e.target.className.includes('button');
