@@ -11,7 +11,7 @@ import {
 export const renderModal = (e) => {
   e.target.className.includes('button');
   if (e.target.className.includes('button')) {
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
   }
 };
 
@@ -30,17 +30,17 @@ export const createModal = (i, movieStore) => {
 
   modalName.innerText = name;
   modalSummary.innerHTML = summary;
-  const { medium } = image;
-  const mediumImage = medium;
-  modalImage.src = mediumImage;
+  const { original } = image;
+  modalImage.src = original;
   modalButton.dataset.id = id;
 };
 
 const addCommentTable = (date, name, comment) => {
   const commentTable = document.createElement('tr');
   commentTable.innerHTML = `
-  <td>${date} <strong>${name}</strong> 👉</td>
-  <td>${comment}</td>
+  <td>${date}</td>
+  <td><strong>${name}</strong></td>
+  <td>👉 ${comment}</td>
   `;
   table.append(commentTable);
 };

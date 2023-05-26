@@ -66,17 +66,21 @@ export default class MovieStore {
   render() {
     let content = '';
     this.moviesArray.forEach((movie) => {
-      content += `<div class="card">
-        <img class="card-banner" src="${movie.image.medium}" />
-        <div class="card-body">
-          <a class="movie-name">${movie.name}</a>
-          <i class="like-button fa-regular fa-heart" data-id=${movie.id}></i>
+      content += `
+      <div class="card-container">
+        <div class="card">
+          <img class="card-banner" src="${movie.image.medium}" />
+          <div class="card-body">
+            <a class="movie-name">${movie.name}</a>
+            <i class="like-button fas fa-heart" data-id=${movie.id}></i>
+          </div>
+          <p>${movie.likes ?? 0} likes</p>
+          <button class="comment-button" data-id=${
+            movie.id
+          } data-target="#model-window">Comments <i class="fas fa-plus"></i></button>
         </div>
-        <p>${movie.likes ?? 0} likes</p>
-        <button class="comment-button" data-id=${
-          movie.id
-        } data-target="#model-window">Comments</button>
-      </div>`;
+      </div>
+    `;
     });
 
     return content;

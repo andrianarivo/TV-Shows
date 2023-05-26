@@ -16,3 +16,8 @@ input[type='reset'] {
   cursor: pointer;
   outline: inherit;
 }
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
