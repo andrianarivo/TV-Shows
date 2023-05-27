@@ -60,7 +60,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - Look at a video of us presenting the project: <a href="https://drive.google.com/file/d/1vInP2D4wGq3JF1LGSBb_pArZiegj6qn3/view?usp=sharing">here</a>
-- <a href="https://andrianarivo.github.io/capstone-2/dist/index.html">Check out the live demo</a>
+- <a href="https://andrianarivo.github.io/TV-Shows/dist/">Check out the live demo</a>
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
