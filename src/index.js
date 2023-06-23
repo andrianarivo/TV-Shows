@@ -1,5 +1,10 @@
+// eslint-disable-next-line import/no-unresolved
 import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+// eslint-disable-next-line import/no-unresolved
+
 import '@fortawesome/fontawesome-free/scss/regular.scss';
+// eslint-disable-next-line import/no-unresolved
+
 import '@fortawesome/fontawesome-free/scss/solid.scss';
 import {
   closeModal,
