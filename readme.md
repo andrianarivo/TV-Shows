@@ -55,7 +55,7 @@
 - **Use of linter checks**
 - **Use of best practices for HTML/CSS and JavaScript**
 - **Use of Webpack configuration**
-- **Use of professional documentation**
+- **Use of professional tech documentation**
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
